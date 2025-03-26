@@ -1,2 +1,7 @@
 br/insper/prova/ProvaApplication.class
 br/insper/prova/teste/TesteController.class
+br/insper/prova/cursos/CursoRepository.class
+br/insper/prova/cursos/CursoService.class
+br/insper/prova/cursos/Curso.class
+br/insper/prova/cursos/CursoController.class
+br/insper/prova/cursos/UsuarioResponse.class

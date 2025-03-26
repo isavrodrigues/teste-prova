@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+prova,br.insper.prova.cursos,CursoController,58,0,4,0,13,0,6,0,4,0
+prova,br.insper.prova.cursos,CursoService,73,0,4,0,17,0,7,0,5,0
+prova,br.insper.prova.cursos,Curso,52,0,0,0,15,0,15,0,15,0
+prova,br.insper.prova.cursos,UsuarioResponse,24,0,0,0,7,0,7,0,7,0
+prova,br.insper.prova,ProvaApplication,8,0,0,0,3,0,2,0,2,0
+prova,br.insper.prova.teste,TesteController,0,5,0,0,0,2,0,2,0,2

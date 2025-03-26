@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Curso.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">prova</a> &gt; <a href="index.source.html" class="el_package">br.insper.prova.cursos</a> &gt; <span class="el_source">Curso.java</span></div><h1>Curso.java</h1><pre class="source lang-java linenums">package br.insper.prova.cursos;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = &quot;cursos&quot;)
+<span class="nc" id="L7">public class Curso {</span>
+    @Id
+    private String id;
+    private String titulo;
+    private String descricao;
+    private Integer cargaHoraria;
+    private String instrutor;
+    private String nomeUsuario;
+    private String emailUsuario;
+
+<span class="nc" id="L17">    public String getId() { return id; }</span>
+<span class="nc" id="L18">    public void setId(String id) { this.id = id; }</span>
+
+<span class="nc" id="L20">    public String getTitulo() { return titulo; }</span>
+<span class="nc" id="L21">    public void setTitulo(String titulo) { this.titulo = titulo; }</span>
+
+<span class="nc" id="L23">    public String getDescricao() { return descricao; }</span>
+<span class="nc" id="L24">    public void setDescricao(String descricao) { this.descricao = descricao; }</span>
+
+<span class="nc" id="L26">    public Integer getCargaHoraria() { return cargaHoraria; }</span>
+<span class="nc" id="L27">    public void setCargaHoraria(Integer cargaHoraria) { this.cargaHoraria = cargaHoraria; }</span>
+
+<span class="nc" id="L29">    public String getInstrutor() { return instrutor; }</span>
+<span class="nc" id="L30">    public void setInstrutor(String instrutor) { this.instrutor = instrutor; }</span>
+
+<span class="nc" id="L32">    public String getNomeUsuario() { return nomeUsuario; }</span>
+<span class="nc" id="L33">    public void setNomeUsuario(String nomeUsuario) { this.nomeUsuario = nomeUsuario; }</span>
+
+<span class="nc" id="L35">    public String getEmailUsuario() { return emailUsuario; }</span>
+<span class="nc" id="L36">    public void setEmailUsuario(String emailUsuario) { this.emailUsuario = emailUsuario; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
