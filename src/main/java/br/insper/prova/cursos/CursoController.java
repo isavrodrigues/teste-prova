@@ -10,6 +10,7 @@ import java.util.List;
 @RequestMapping("/api/cursos")
 public class CursoController {
 
+
     @Autowired
     private CursoService cursoService;
 
