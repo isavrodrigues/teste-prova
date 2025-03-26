@@ -1,6 +1,6 @@
 package br.insper.prova.cursos;
 
-class UsuarioResponse {
+public class UsuarioResponse {
     private String nome;
     private String email;
     private String papel;

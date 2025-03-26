@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(&quot;/api/cursos&quot;)
-<span class="nc" id="L11">class CursoController {</span>
+<span class="fc" id="L11">public class CursoController {</span>
 
     @Autowired
     private CursoService cursoService;
@@ -16,12 +16,12 @@ import java.util.List;
     @PostMapping
     public ResponseEntity&lt;?&gt; criarCurso(@RequestBody Curso curso, @RequestHeader(name = &quot;email&quot;) String email) {
         try {
-<span class="nc" id="L19">            return ResponseEntity.ok(cursoService.criarCurso(curso, email));</span>
-<span class="nc" id="L20">        } catch (Exception e) {</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">            if (e.getMessage().equals(&quot;Usuário não encontrado&quot;)) {</span>
-<span class="nc" id="L22">                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());</span>
+<span class="fc" id="L19">            return ResponseEntity.ok(cursoService.criarCurso(curso, email));</span>
+<span class="fc" id="L20">        } catch (Exception e) {</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">            if (e.getMessage().equals(&quot;Usuário não encontrado&quot;)) {</span>
+<span class="fc" id="L22">                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());</span>
             } else {
-<span class="nc" id="L24">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());</span>
+<span class="fc" id="L24">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());</span>
             }
         }
     }
@@ -29,20 +29,20 @@ import java.util.List;
     @DeleteMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;?&gt; deletarCurso(@PathVariable String id, @RequestHeader(name = &quot;email&quot;) String email) {
         try {
-<span class="nc" id="L32">            cursoService.deletarCurso(id, email);</span>
-<span class="nc" id="L33">            return ResponseEntity.ok().build();</span>
-<span class="nc" id="L34">        } catch (Exception e) {</span>
-<span class="nc bnc" id="L35" title="All 2 branches missed.">            if (e.getMessage().equals(&quot;Usuário não encontrado&quot;)) {</span>
-<span class="nc" id="L36">                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());</span>
+<span class="fc" id="L32">            cursoService.deletarCurso(id, email);</span>
+<span class="fc" id="L33">            return ResponseEntity.ok().build();</span>
+<span class="fc" id="L34">        } catch (Exception e) {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            if (e.getMessage().equals(&quot;Usuário não encontrado&quot;)) {</span>
+<span class="fc" id="L36">                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());</span>
             } else {
-<span class="nc" id="L38">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());</span>
+<span class="fc" id="L38">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());</span>
             }
         }
     }
 
     @GetMapping
     public List&lt;Curso&gt; listarCursos() {
-<span class="nc" id="L45">        return cursoService.listarCursos();</span>
+<span class="fc" id="L45">        return cursoService.listarCursos();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

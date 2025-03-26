@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cursos")
-class CursoController {
+public class CursoController {
 
     @Autowired
     private CursoService cursoService;

@@ -1,18 +1,14 @@
 package br.insper.prova.cursos;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @Service
-class CursoService {
-
-    private static final String USUARIO_API_URL = "http://56.124.127.89:8080/api/usuario/";
+public class CursoService {
 
     @Autowired
     private CursoRepository cursoRepository;
@@ -20,34 +16,46 @@ class CursoService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public UsuarioResponse getUsuario(String email) throws Exception {
-        try {
-            ResponseEntity<UsuarioResponse> response = restTemplate.getForEntity(USUARIO_API_URL + email, UsuarioResponse.class);
-            return response.getBody();
-        } catch (Exception e) {
-            throw new Exception("Usuário não encontrado");
-        }
-    }
+    private static final String USUARIO_API = "http://56.124.127.89:8080/api/usuario/";
 
     public Curso criarCurso(Curso curso, String email) throws Exception {
-        UsuarioResponse usuario = getUsuario(email);
-        if (!"ADMIN".equalsIgnoreCase(usuario.getPapel())) {
-            throw new Exception("Usuário sem permissão");
+        UsuarioResponse usuario = buscarUsuario(email);
+
+        if (!"ADMIN".equals(usuario.getPapel())) {
+            throw new Exception("Usuário não tem permissão.");
         }
+
         curso.setEmailUsuario(usuario.getEmail());
         curso.setNomeUsuario(usuario.getNome());
         return cursoRepository.save(curso);
     }
 
     public void deletarCurso(String id, String email) throws Exception {
-        UsuarioResponse usuario = getUsuario(email);
-        if (!"ADMIN".equalsIgnoreCase(usuario.getPapel())) {
-            throw new Exception("Usuário sem permissão");
+        UsuarioResponse usuario = buscarUsuario(email);
+
+        if (!"ADMIN".equals(usuario.getPapel())) {
+            throw new Exception("Usuário não tem permissão.");
         }
+
         cursoRepository.deleteById(id);
     }
 
     public List<Curso> listarCursos() {
         return cursoRepository.findAll();
+    }
+
+    private UsuarioResponse buscarUsuario(String email) throws Exception {
+        ResponseEntity<UsuarioResponse> response = restTemplate.getForEntity(
+                USUARIO_API + email,
+                UsuarioResponse.class
+        );
+
+        UsuarioResponse usuario = response.getBody();
+
+        if (!response.getStatusCode().is2xxSuccessful() || usuario == null) {
+            throw new Exception("Usuário não encontrado.");
+        }
+
+        return usuario;
     }
 }
